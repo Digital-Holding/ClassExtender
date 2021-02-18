@@ -41,10 +41,10 @@ class TraitUseRemover
     /**
      * @param string $class
      *
-     * @throws BadMethodCallException
+     * @return $this
      * @throws RuntimeException
      *
-     * @return $this
+     * @throws BadMethodCallException
      */
     public function toClass($class)
     {
@@ -76,10 +76,10 @@ class TraitUseRemover
     /**
      * @param string $interface
      *
-     * @throws BadMethodCallException
+     * @return $this
      * @throws RuntimeException
      *
-     * @return $this
+     * @throws BadMethodCallException
      */
     public function toInterface($interface)
     {

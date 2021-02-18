@@ -41,10 +41,10 @@ class ClassExtendAdder
     /**
      * @param string $class
      *
-     * @throws BadMethodCallException
-     * @throws RuntimeException
-     *
      * @return $this
+     *
+     * @throws RuntimeException
+     * @throws BadMethodCallException
      */
     public function toClass($class)
     {
@@ -62,7 +62,7 @@ class ClassExtendAdder
             $handler = new AbstractTreeHandler(
                 $content,
                 $externalClassReflection->getName(),
-                $externalClassReflection->getName()
+                $classReflection->getName()
             );
 
             $content = $handler->handle()->toArray();
@@ -76,10 +76,10 @@ class ClassExtendAdder
     /**
      * @param string $interface
      *
-     * @throws BadMethodCallException
-     * @throws RuntimeException
-     *
      * @return $this
+     *
+     * @throws RuntimeException
+     * @throws BadMethodCallException
      */
     public function toInterface($interface)
     {
@@ -97,7 +97,7 @@ class ClassExtendAdder
             $handler = new AbstractTreeHandler(
                 $content,
                 $externalClassReflection->getName(),
-                $externalClassReflection->getName()
+                $interfaceReflection->getName()
             );
 
             $content = $handler->handleInterface()->toArray();

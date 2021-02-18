@@ -260,7 +260,7 @@ class AbstractTreeHandler extends BaseAbstractTreeHandler implements AbstractTre
                     } else if (substr($previousExtendImport, -2) == ",\n") {
                         $newPreviousExtendImport = $this->content[$statement->getLine() - 1];
 
-                        $previousExtendImportLine =  array_search($statement->getLine() - 1, array_column($extendLines, 'startLine'));
+                        $previousExtendImportLine = array_search($statement->getLine() - 1, array_column($extendLines, 'startLine'));
                         $nexExtendImportLine = array_search($statement->getLine() + 1, array_column($extendLines, 'endLine'));
 
                         if (2 >= $numberOfExtends || ($previousExtendImportLine && !$nexExtendImportLine)) {

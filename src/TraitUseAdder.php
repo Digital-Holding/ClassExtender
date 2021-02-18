@@ -15,10 +15,10 @@ class TraitUseAdder extends BaseTraitUseAdder
     /**
      * @param string $class
      *
-     * @throws BadMethodCallException
+     * @return $this
      * @throws RuntimeException
      *
-     * @return $this
+     * @throws BadMethodCallException
      */
     public function toClass($class)
     {
@@ -50,10 +50,10 @@ class TraitUseAdder extends BaseTraitUseAdder
     /**
      * @param string $interface
      *
-     * @throws BadMethodCallException
+     * @return $this
      * @throws RuntimeException
      *
-     * @return $this
+     * @throws BadMethodCallException
      */
     public function toInterface($interface)
     {
