@@ -39,7 +39,7 @@ class TraitUseAdder extends BaseTraitUseAdder
                 $classReflection->getName()
             );
 
-            $content = $handler->handleRemove()->toArray();
+            $content = $handler->handle()->toArray();
         }
 
         file_put_contents($filePath, implode($content));
@@ -74,7 +74,7 @@ class TraitUseAdder extends BaseTraitUseAdder
                 $interfaceReflection->getName()
             );
 
-            $content = $handler->handleRemoveInterface()->toArray();
+            $content = $handler->handleInterface()->toArray();
         }
 
         file_put_contents($filePath, implode($content));
