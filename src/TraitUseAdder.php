@@ -8,36 +8,10 @@ use ReflectionClass;
 use RuntimeException;
 use BadMethodCallException;
 use ClassExtender\Handlers\AbstractTreeHandler;
+use Traitor\TraitUseAdder as BaseTraitUseAdder;
 
-class ClassExtendRemover
+class TraitUseAdder extends BaseTraitUseAdder
 {
-    /** @var array */
-    protected $externalClassReflections = [];
-
-    /**
-     * @param string $class
-     *
-     * @return static
-     */
-    public function removeExtendedClass($class)
-    {
-        return $this->removeExtendedClasses([$class]);
-    }
-
-    /**
-     * @param array $class
-     *
-     * @return static
-     */
-    public function removeExtendedClasses(array $classes)
-    {
-        foreach ($classes as $class) {
-            $this->externalClassReflections[] = new ReflectionClass($class);
-        }
-
-        return $this;
-    }
-
     /**
      * @param string $class
      *
@@ -48,7 +22,7 @@ class ClassExtendRemover
      */
     public function toClass($class)
     {
-        if (count($this->externalClassReflections) == 0) {
+        if (count($this->traitReflections) == 0) {
             throw new BadMethodCallException("No traits to add were found. Call 'addTrait' first.");
         }
 
@@ -58,10 +32,10 @@ class ClassExtendRemover
 
         $content = file($filePath);
 
-        foreach ($this->externalClassReflections as $externalClassReflection) {
+        foreach ($this->traitReflections as $traitReflection) {
             $handler = new AbstractTreeHandler(
                 $content,
-                $externalClassReflection->getName(),
+                $traitReflection->getName(),
                 $classReflection->getName()
             );
 
@@ -83,7 +57,7 @@ class ClassExtendRemover
      */
     public function toInterface($interface)
     {
-        if (count($this->externalClassReflections) == 0) {
+        if (count($this->traitReflections) == 0) {
             throw new BadMethodCallException("No interfaces to add were found. Call 'addTrait' first.");
         }
 
@@ -93,10 +67,10 @@ class ClassExtendRemover
 
         $content = file($filePath);
 
-        foreach ($this->externalClassReflections as $externalClassReflection) {
+        foreach ($this->traitReflections as $traitReflection) {
             $handler = new AbstractTreeHandler(
                 $content,
-                $externalClassReflection->getName(),
+                $traitReflection->getName(),
                 $interfaceReflection->getName()
             );
 

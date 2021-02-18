@@ -19,10 +19,10 @@ class AbstractTreeHandler extends BaseAbstractTreeHandler implements AbstractTre
 
     public function __construct($content, $trait, $class)
     {
-        parent::__construct($content, $trait, $class);
-
-        $namespace = explode('\\', $this->trait, 3);
+        $namespace = explode('\\', $trait, 3);
         $this->prefix = $namespace[0] . $namespace[1];
+
+        parent::__construct($content, $trait, $class);
     }
 
     /**

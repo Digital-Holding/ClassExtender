@@ -7,7 +7,7 @@ namespace ClassExtender;
 class ClassExtender
 {
     /**
-     * @param string $trait
+     * @param string $class
      */
     public static function extendClass($class): ClassExtendAdder
     {
@@ -29,15 +29,15 @@ class ClassExtender
     }
 
     /**
-     * @param string $trait
+     * @param string $class
      *
      * @return ClassExtendRemover
      */
-    public static function removeExtendedClass($trait)
+    public static function removeExtendedClass($class)
     {
         $instance = new ClassExtendRemover();
 
-        return $instance->removeExtendedClasses([$trait]);
+        return $instance->removeExtendedClasses([$class]);
     }
 
     /**
