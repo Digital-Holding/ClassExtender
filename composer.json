@@ -1,0 +1,18 @@
+{
+  "name": "digital-holding/class-extender",
+  "description": "Extend existing PHP class",
+  "keywords": ["PHP", "trait", "interface", "add"],
+  "license": "MIT",
+  "require": {
+    "php": "^7.3",
+    "kkszymanowski/traitor": "^0.2.5"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "ClassExtender\\": "src/"
+    }
+  }
+}
