@@ -7,7 +7,7 @@ namespace ClassExtender;
 use ReflectionClass;
 use RuntimeException;
 use BadMethodCallException;
-use Traitor\Handlers\AbstractTreeHandler;
+use ClassExtender\Handlers\AbstractTreeHandler;
 
 class ClassExtendAdder
 {
